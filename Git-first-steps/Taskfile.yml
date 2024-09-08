@@ -87,4 +87,10 @@ tasks:
     cmds:
       - 'git add Taskfile.yml'
       - 'git commit -m "Resolved merge conflict in Taskfile.yml"'
+  list-hidden-dir:
+    cmds:
+      - 'powershell -Command "ls -hidden"'
+  browser-git-dir:
+    cmds:
+      - 'powershell -Command "cd .git; code ."'
 
