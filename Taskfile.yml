@@ -65,3 +65,26 @@ tasks:
   git-merge-in-master:
     cmds:
       - 'git merge task-1'
+  git-log:
+    cmds:
+      - 'git log'
+  git-branch:
+    cmds:
+      - 'git branch'
+  git-checkout-to-new-branch:
+    cmds:
+      - 'git checkout -b task-1'
+  git-checkout-to-main:
+    cmds:
+      - 'git checkout main'
+  change-index-file:
+    cmds:
+      - 'powershell -Command "sed -i ''s/<h1>Welcome<\/h1>/<h1>Welcome!!!<\/h1>/'' index.html"'
+  commit-changes:
+    cmds:
+      - 'git commit -m "chore: change homepage to be more welcome"'
+  commit-taskfile-conflicts:
+    cmds:
+      - 'git add Taskfile.yml'
+      - 'git commit -m "Resolved merge conflict in Taskfile.yml"'
+
