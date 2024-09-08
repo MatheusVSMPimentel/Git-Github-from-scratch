@@ -1,0 +1,10 @@
+version: "3.8"
+
+tasks:
+  install-github-desktop:
+    cmds:
+      - 'powershell -Command "winget search github; winget install github.githubdesktop"'
+  install-github-cli:
+    cmds:
+      - 'powershell -Command "winget search github; winget install github.cli"'
+      
