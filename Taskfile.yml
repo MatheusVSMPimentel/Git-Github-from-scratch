@@ -59,3 +59,6 @@ tasks:
   git-commit-individual:
     cmds:
       - git commit -m "first commit"
+  git-commit-all:
+    cmds:
+      - 'git commit -m "second status: leftovers files"'
