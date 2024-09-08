@@ -1,0 +1,61 @@
+version: "3.8"
+
+tasks:
+  install-git:
+    cmds:
+      - 'powershell -Command "winget search git.git; winget install git.git"'
+  git-config:
+    cmds:
+      - 'powershell -Command "git config --list"'
+  git-config-username:
+    cmds:
+      - 'powershell -Command "$username_git Read-Host -Prompt ''Enter your Git username'' ; git config --global user.name ''$username_git''"'
+  git-config-email:
+    cmds:
+      - 'powershell -Command "$email_git Read-Host -Prompt ''Enter your Git email'' ; git config --global user.email $email_git "'
+  create-initial-files:
+    cmds:
+      - task: create-files
+      - task: add-content
+
+
+
+
+  create-files:
+    cmds:
+      - 'powershell -Command "New-Item -Path . -Name \"README.md\" -ItemType \"file\" "'
+      - 'powershell -Command "New-Item -Path . -Name \"style.css\" -ItemType \"file\" "'
+      - 'powershell -Command "New-Item -Path . -Name \"index.html\" -ItemType \"file\" "'
+    desc: "Create README.md, style.css, and index.html files"
+  add-content:
+    cmds:
+      - 'powershell -Command "Add-Content -Path \"README.md\" -Value \"# Project Title\" "'
+      - 'powershell -Command "Add-Content -Path \"style.css\" -Value \"body { font-family: Arial, sans-serif; }\" "'
+      - 'powershell -Command "Add-Content -Path \"index.html\" -Value \"
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+        <body>
+          <h1>Welcome</h1>
+        </body>
+        </html>
+        \" "'
+    desc: "Add content to README.md, style.css, and index.html files"
+  git-init:
+    cmds:
+    - git init
+  git-status:
+    cmds:
+      - git status
+  git-add-individual:
+    cmds:
+      - git add index.html
+  git-add-all:
+    cmds:
+      - git add *
+  git-commit-individual:
+    cmds:
+      - git commit -m "first commit"
