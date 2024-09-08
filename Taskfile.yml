@@ -71,6 +71,9 @@ tasks:
   git-checkout-to-new-branch:
     cmds:
       - 'git checkout -b task-1'
+  git-checkout-to-main:
+    cmds:
+      - 'git checkout main'
   change-index-file:
     cmds:
       - 'powershell -Command "sed -i ''s/<h1>Welcome<\/h1>/<h1>Welcome!!!<\/h1>/'' index.html"'
