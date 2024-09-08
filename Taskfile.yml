@@ -62,3 +62,6 @@ tasks:
   git-commit-all:
     cmds:
       - 'git commit -m "second status: leftovers files"'
+  git-merge-in-master:
+    cmds:
+      - 'git merge task-1'
