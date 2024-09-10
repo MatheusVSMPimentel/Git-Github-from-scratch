@@ -10,9 +10,11 @@ tasks:
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''#!/bin/bash''"'
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# Get the commit message from the argument''"'
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''MSG=\$1''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# Read the commit message from the file''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# MSG=$(cat "$MSG_FILE")''"'
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# Check if the commit message ends with the desired pattern''"'
-      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''if ! grep -qE \"por [a-zA-Z0-9_]+\$\" $MSG; then''"'
-      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''  echo \"Sua mensagem deve terminar com \" por [nome_do_autor_do_commit]\" \"''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''if ! grep -qE \"by [a-zA-Z0-9_]+\$\" $MSG; then''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''  echo \"Your message should ends with \" by [commit_author_name]\" \"''"'
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''  exit 1''"'
       - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''fi''"'
   git-add-files-to-git-index:
@@ -20,4 +22,10 @@ tasks:
       - git add *
   git-commit-without-rule:
     cmds:
-      - git commit -m "uma mensagem qualquer que não deve passar"
+      - git commit -m "any commit message goes here"
+  git-commit-following-rule:
+    cmds:
+      - 'git commit -m ''feature: creating hook blocking commits without author name by Matheus Pimentel'''
+  git-tag-v1:
+    cmds:
+      - 'git tag v1.0.0'
