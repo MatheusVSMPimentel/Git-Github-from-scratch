@@ -1,0 +1,23 @@
+version: "3.8"
+
+tasks:
+  git-reset-head-to-last-index:
+    cmds:
+      - git reset HEAD~
+  add-hook-to-git-repo:
+    cmds:
+      - 'powershell -Command "cd .git/hooks; New-Item -Path . -Name \"prepare-commit-msg\" -ItemType \"file\" "'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''#!/bin/bash''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# Get the commit message from the argument''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''MSG=\$1''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''# Check if the commit message ends with the desired pattern''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''if ! grep -qE \"por [a-zA-Z0-9_]+\$\" $MSG; then''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''  echo \"Sua mensagem deve terminar com \" por [nome_do_autor_do_commit]\" \"''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''  exit 1''"'
+      - 'powershell -Command "cd .git/hooks; Add-Content -Path \"prepare-commit-msg\" -Value ''fi''"'
+  git-add-files-to-git-index:
+    cmds:
+      - git add *
+  git-commit-without-rule:
+    cmds:
+      - git commit -m "uma mensagem qualquer que não deve passar"

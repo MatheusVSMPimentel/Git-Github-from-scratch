@@ -7,4 +7,7 @@ tasks:
   install-github-cli:
     cmds:
       - 'powershell -Command "winget search github; winget install github.cli"'
+  githb-cli:
+    cmds:
+      - 'powershell -Command "gh"'
       
