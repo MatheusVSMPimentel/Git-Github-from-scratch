@@ -26,12 +26,21 @@ tasks:
   git-commit-following-rule:
     cmds:
       - 'git commit -m ''feature: creating hook blocking commits without author name by Matheus Pimentel'''
+  git-commit-tags:
+    cmds:
+      - 'git commit -m ''chore: create tags commands by Matheus Pimentel'''
   git-tag-v1:
     cmds:
       - 'git tag v1.0.0'
+  git-tag-v1-1:
+    cmds:
+      - 'git tag v1.1.0'
   git-tag-list:
     cmds:
       - 'git tag -l'
   git-status:
     cmds: 
       - 'git status'
+  git-checkout-v1:
+    cmds:
+      - 'git checkout v1.0.0'
