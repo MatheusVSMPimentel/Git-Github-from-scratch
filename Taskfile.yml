@@ -29,3 +29,9 @@ tasks:
   git-tag-v1:
     cmds:
       - 'git tag v1.0.0'
+  git-tag-list:
+    cmds:
+      - 'git tag -l'
+  git-status:
+    cmds: 
+      - 'git status'
