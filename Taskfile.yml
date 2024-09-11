@@ -71,8 +71,14 @@ tasks:
   submodule-init:
     cmds:
       - 'powershell -Command "git submodule init "'
+  submodule-update-init:
+    cmds:
+      - 'powershell -Command "git submodule update --init --recursive "'
   git-clone-with-submodule:
     cmds:
       - 'powershell -Command "git clone https://github.com/MatheusVSMPimentel/Git-Github-from-scratch.git --recurse-submodules "'
+  git-clone-without-submodule:
+    cmds:
+      - 'powershell -Command "git clone https://github.com/MatheusVSMPimentel/Git-Github-from-scratch.git "'
   
   
