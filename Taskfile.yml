@@ -20,6 +20,9 @@ tasks:
   git-add-files-to-git-index:
     cmds:
       - git add *
+  git-push:
+    cmds:
+      - git push
   git-commit-without-rule:
     cmds:
       - git commit -m "any commit message goes here"
