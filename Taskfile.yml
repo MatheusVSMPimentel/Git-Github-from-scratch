@@ -29,6 +29,9 @@ tasks:
   git-commit-tags:
     cmds:
       - 'git commit -m ''chore: create tags commands by Matheus Pimentel'''
+  git-commit-submodule:
+    cmds:
+      - 'git commit -m ''feature: working with submodules by Matheus Pimentel'''
   git-tag-v1:
     cmds:
       - 'git tag v1.0.0'
@@ -50,3 +53,10 @@ tasks:
   browser-to-submodule-verify-branch:
     cmds:
       - 'powershell -Command "git branch ; cd AutoMapper; git branch "'
+  automapper-submodule-pull:
+    cmds:
+      - 'powershell -Command "cd AutoMapper; git pull "'
+  submodule-update-all:
+    cmds:
+      - 'powershell -Command "git submodule update "'
+  
