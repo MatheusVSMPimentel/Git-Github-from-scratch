@@ -44,3 +44,9 @@ tasks:
   git-checkout-v1:
     cmds:
       - 'git checkout v1.0.0'
+  git-add-submodule:
+    cmds:
+      - 'git submodule add https://github.com/AutoMapper/AutoMapper.git'
+  browser-to-submodule-verify-branch:
+    cmds:
+      - 'powershell -Command "git branch ; cd AutoMapper; git branch "'
