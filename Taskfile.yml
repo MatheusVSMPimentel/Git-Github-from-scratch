@@ -96,5 +96,14 @@ tasks:
   git-commit-lfs:
     cmds:
       - 'powershell -Command "git commit -m ''feature: working with lfs by Matheus Pimentel''"'
+  git-reset-commit:
+    cmds:
+      - 'powershell -Command "git reset Head~1 --soft"'
+  git-commit-bundling:
+    cmds:
+      - 'powershell -Command "git commit -m ''feature: working with bundling by Matheus Pimentel''"'
+  git-bundle:
+    cmds:
+      - 'powershell -Command "git bundle create MyProject.Bundle HEAD main"'
   
   
