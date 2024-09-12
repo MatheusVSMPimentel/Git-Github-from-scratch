@@ -80,5 +80,21 @@ tasks:
   git-clone-without-submodule:
     cmds:
       - 'powershell -Command "git clone https://github.com/MatheusVSMPimentel/Git-Github-from-scratch.git "'
+  install-git-lfs:
+    cmds:
+      - 'powershell -Command "winget search lfs ; winget install GitHub.GitLFS"'
+  git-lfs:
+    cmds:
+      - 'powershell -Command "git lfs"'
+  git-lfs-install:
+    cmds:
+      - 'powershell -Command "git lfs install"'
+  git-lfs-track-mov:
+    cmds:
+      - 'powershell -Command "git lfs track \"*.mov\" "'
+      - 'powershell -Command "git lfs install"'
+  git-commit-lfs:
+    cmds:
+      - 'powershell -Command "git commit -m ''feature: working with lfs by Matheus Pimentel''"'
   
   
