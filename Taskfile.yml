@@ -104,6 +104,17 @@ tasks:
       - 'powershell -Command "git commit -m ''feature: working with bundling by Matheus Pimentel''"'
   git-bundle:
     cmds:
-      - 'powershell -Command "git bundle create MyProject.Bundle HEAD main"'
+      - 'powershell -Command "git bundle create MyProject.bundle HEAD main"'
+  browser-copy-and-clone-bundle:
+    cmds:
+      - 'powershell -Command " 
+        cd ../../teste-repos; 
+        copy ../repos/Git-Github-from-scratch/MyProject.bundle .; 
+        git clone MyProject.bundle "'
+  browser-to-bundle-clone-verify-branch:
+    cmds:
+      - 'powershell -Command " 
+        cd ../../teste-repos/MyProject; 
+        git branch; git log "'
   
   
