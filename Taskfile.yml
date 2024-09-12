@@ -120,5 +120,41 @@ tasks:
     cmds:
       - 'powershell -Command " 
         git rebase -i HEAD~10 "'
-  
+  git-log-simplified:
+    cmds:
+      - 'powershell -Command " 
+        git log --oneline "'
+  git-log-search:
+    cmds:
+      - 'powershell -Command " 
+        git log -S lfs "'
+  git-log-search-diff:
+    cmds:
+      - 'powershell -Command " 
+        git log --diff-filter=D --summary"'
+  git-log-search-files:
+    cmds:
+      - 'powershell -Command " 
+        git log --all --full-history -- \"*index*\" "'
+  git-grep:
+    cmds:
+      - 'powershell -Command " 
+        git grep ! "'
+  git-grep-count:
+    cmds:
+      - 'powershell -Command " 
+        git grep --count ! "'
+  git-bisect-start:
+    cmds:
+        #answer the questions after command
+      - 'powershell -Command " 
+        git bisect start "'
+  git-bisect-reset:
+    cmds:
+      - 'powershell -Command " 
+        git bisect reset "'
+  git-bisect-with-command:
+    cmds:
+      - 'powershell -Command " 
+        git bisect start HEAD {{lastGoodVersionTag}}  ; git bisect run {{someCommand}}"'
   
