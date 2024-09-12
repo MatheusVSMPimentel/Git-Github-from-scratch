@@ -116,5 +116,9 @@ tasks:
       - 'powershell -Command " 
         cd ../../teste-repos/MyProject; 
         git branch; git log "'
+  git-rebase-interactive:
+    cmds:
+      - 'powershell -Command " 
+        git rebase -i HEAD~10 "'
   
   
